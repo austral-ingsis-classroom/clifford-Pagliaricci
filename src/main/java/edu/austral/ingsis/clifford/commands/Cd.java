@@ -40,7 +40,7 @@ public class Cd implements Command {
         for (String dir : directories) {
             Node node = current.getNode(dir);
             if (!(node instanceof Directory)) {
-                return "Directory not found";
+                return "'"+dir+"' directory does not exist";
             }
             current = (Directory) node;
         }

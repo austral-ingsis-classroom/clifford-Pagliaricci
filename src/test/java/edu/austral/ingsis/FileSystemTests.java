@@ -100,9 +100,9 @@ public class FileSystemTests {
             entry("cd horace", "moved to directory 'horace'"),
             entry("touch emily.txt", "'emily.txt' file created"),
             entry("touch jetta.txt", "'jetta.txt' file created"),
-            entry("ls", "emily.txt jetta.txt"),
+            entry("ls", "emily.txt jetta.txt "),
             entry("rm emily.txt", "'emily.txt' removed"),
-            entry("ls", "jetta.txt")));
+            entry("ls", "jetta.txt ")));
   }
 
   @Test
@@ -114,9 +114,9 @@ public class FileSystemTests {
             entry("mkdir emily", "'emily' directory created"),
             entry("touch emily.txt", "'emily.txt' file created"),
             entry("touch jetta.txt", "'jetta.txt' file created"),
-            entry("ls", "emily emily.txt jetta.txt"),
+            entry("ls", "emily emily.txt jetta.txt "),
             entry("rm --recursive emily", "'emily' removed"),
-            entry("ls", "emily.txt jetta.txt"),
-            entry("ls --ord=desc", "jetta.txt emily.txt")));
+            entry("ls", "emily.txt jetta.txt "),
+            entry("ls --ord=desc", "jetta.txt emily.txt ")));
   }
 }
