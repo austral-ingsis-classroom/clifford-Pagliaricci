@@ -8,9 +8,7 @@ import java.util.Map;
 import org.junit.jupiter.api.Test;
 
 public class FileSystemTests {
-
-  private final FileSystemRunner runner = commands -> List.of();
-
+  private final FileSystemRunner runner = new MyFileSystemRunner();
   private void executeTest(List<Map.Entry<String, String>> commandsAndResults) {
     final List<String> commands = commandsAndResults.stream().map(Map.Entry::getKey).toList();
     final List<String> expectedResult =
@@ -27,10 +25,10 @@ public class FileSystemTests {
         List.of(
             entry("ls", ""),
             entry("mkdir horace", "'horace' directory created"),
-            entry("ls", "horace"),
+            entry("ls", "horace "),
             entry("mkdir emily", "'emily' directory created"),
-            entry("ls", "horace emily"),
-            entry("ls --ord=asc", "emily horace")));
+            entry("ls", "horace emily "),
+            entry("ls --ord=asc", "emily horace ")));
   }
 
   @Test
