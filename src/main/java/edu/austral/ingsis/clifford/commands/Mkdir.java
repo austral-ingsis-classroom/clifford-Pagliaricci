@@ -3,6 +3,7 @@ package edu.austral.ingsis.clifford.commands;
 import edu.austral.ingsis.clifford.Command;
 import edu.austral.ingsis.clifford.FileSystem;
 import edu.austral.ingsis.clifford.files.Directory;
+import edu.austral.ingsis.clifford.files.Node;
 
 public class Mkdir implements Command {
 

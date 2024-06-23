@@ -12,7 +12,7 @@ public class Pwd implements Command {
 
   @Override
   public String execute() {
-    return fileSystem.getRootPath();
+      return fileSystem.getCurrentDirectory().getPath();
   }
 
 

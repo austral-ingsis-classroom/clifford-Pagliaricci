@@ -19,28 +19,16 @@ public class Rm implements Command {
 
   @Override
   public String execute() {
-    try {
-      Node node;
-      if (!args.contains("--recursive")) {
-        node = fileSystem.getCurrentDirectory().getParentDirectory();
-        if (node == null) {
-          return "Error: Node does not exist.";
-        }
-        if (node instanceof Directory) {
-          return "Cannot remove directory without --recursive flag";
-        }
-      } else {
-        node = fileSystem.getCurrentDirectory().getParentDirectory();
-        if (node == null) {
-          return "Error: Node does not exist.";
-        }
+      if(args.get(0).equals("--recursive")){
+        fileSystem.getCurrentDirectory().removeNode(args.get(1));
+        return "'" + args.get(1) + "' removed";
       }
-      System.out.println("HOLAAA");
-      //fileSystem.getCurrentDirectory().removeNode(node);
-      return node.getName() + " file removed";
-    } catch (Exception e) {
-      return "Error: " + e.getMessage();
-    }
+      Node node = fileSystem.getCurrentDirectory().getNode(args.get(0));
+        if(node instanceof Directory){
+          return "cannot remove '" + args.get(0) + "', is a directory";
+        }
+        fileSystem.getCurrentDirectory().removeNode(args.get(0));
+        return "'" + args.get(0) + "' removed";
   }
 
 

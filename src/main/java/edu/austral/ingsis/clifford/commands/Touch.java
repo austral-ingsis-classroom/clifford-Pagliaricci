@@ -18,7 +18,7 @@ public class Touch implements Command {
   @Override
   public String execute() {
       Node file = new File(name, fileSystem.getCurrentDirectory());
-      return name + ".txt" + "file created";
+      return "'"+ name + "'"+  " file created";
   }
 
 

@@ -38,12 +38,12 @@ public class FileSystemTests {
             entry("mkdir horace", "'horace' directory created"),
             entry("mkdir emily", "'emily' directory created"),
             entry("mkdir jetta", "'jetta' directory created"),
-            entry("ls", "horace emily jetta"),
+            entry("ls", "horace emily jetta "),
             entry("cd emily", "moved to directory 'emily'"),
             entry("pwd", "/emily"),
             entry("touch elizabeth.txt", "'elizabeth.txt' file created"),
             entry("mkdir t-bone", "'t-bone' directory created"),
-            entry("ls", "elizabeth.txt t-bone")));
+            entry("ls", "elizabeth.txt t-bone ")));
   }
 
   @Test
@@ -56,10 +56,10 @@ public class FileSystemTests {
             entry("cd emily", "moved to directory 'emily'"),
             entry("touch elizabeth.txt", "'elizabeth.txt' file created"),
             entry("mkdir t-bone", "'t-bone' directory created"),
-            entry("ls", "t-bone elizabeth.txt"),
+            entry("ls", "elizabeth.txt t-bone "),
             entry("rm t-bone", "cannot remove 't-bone', is a directory"),
             entry("rm --recursive t-bone", "'t-bone' removed"),
-            entry("ls", "elizabeth.txt"),
+            entry("ls", "elizabeth.txt "),
             entry("rm elizabeth.txt", "'elizabeth.txt' removed"),
             entry("ls", "")));
   }
@@ -68,14 +68,15 @@ public class FileSystemTests {
   void test4() {
     executeTest(
         List.of(
-            entry("mkdir horace", "'horace' directory created"),
-            entry("mkdir emily", "'emily' directory created"),
-            entry("cd horace", "moved to directory 'horace'"),
-            entry("mkdir jetta", "'jetta' directory created"),
-            entry("cd ..", "moved to directory '/'"),
-            entry("cd horace/jetta", "moved to directory 'jetta'"),
-            entry("pwd", "/horace/jetta"),
-            entry("cd /", "moved to directory '/'")));
+                entry("mkdir horace", "'horace' directory created"),
+                entry("mkdir emily", "'emily' directory created"),
+                entry("cd horace", "moved to directory 'horace'"),
+                entry("mkdir jetta", "'jetta' directory created"),
+                entry("cd ..", "moved to directory '/'"),
+                entry("cd horace/jetta", "moved to directory 'jetta'"),
+                entry("pwd", "/horace/jetta"),
+                entry("cd /", "moved to directory '/'")
+      ));
   }
 
   @Test

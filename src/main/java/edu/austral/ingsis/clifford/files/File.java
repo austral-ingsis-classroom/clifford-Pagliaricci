@@ -5,16 +5,17 @@ import java.util.List;
 
 public class File implements Node{
 
-private String name;
-private Directory directory;
-private Date creationDate;
+private final String name;
+private final Directory parent;
+private final Date creationDate;
 
 
-public File(String name, Directory directory) {
+  public File(String name, Directory parent) {
+    parent.addNode(this);
     this.name = name;
-    this.directory = directory;
+    this.parent = parent;
     this.creationDate = new Date();
-}
+  }
 
   @Override
   public String getName() {
@@ -23,7 +24,7 @@ public File(String name, Directory directory) {
 
   @Override
   public Node getParentDirectory() {
-    return directory;
+    return parent;
   }
 
   @Override
@@ -35,5 +36,10 @@ public File(String name, Directory directory) {
   public Date getCreationDate() {
     return creationDate;
   }
-
+  public String getPath(){
+    if(parent == null || parent.getName().equals("root")){
+      return "/" + name;
+    }
+    return parent.getPath() + "/" + name;
+  }
 }

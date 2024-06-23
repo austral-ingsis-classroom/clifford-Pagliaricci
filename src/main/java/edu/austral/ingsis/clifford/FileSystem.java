@@ -1,37 +1,36 @@
 package edu.austral.ingsis.clifford;
 
-
 import edu.austral.ingsis.clifford.files.Directory;
 
-
 public class FileSystem {
+  private StringBuilder rootPath;
+  private Directory rootDirectory;
+  private Directory currentDirectory;
 
-  private String rootPath;
-  private Directory currentDirectory = new Directory("root");
+  public FileSystem(String rootPath) {
+    this.rootPath = new StringBuilder(rootPath);
+    this.rootDirectory = new Directory("/");
+    this.currentDirectory = rootDirectory;
+  }
 
-    public FileSystem(String rootPath) {
+  public String executeCommand(Command command) {
+    return command.execute();
+  }
 
-        this.rootPath = rootPath;
-    }
+  public void changeDirectory(Directory dir) {
+    currentDirectory = dir;
+    rootPath = new StringBuilder(currentDirectory.getPath());
+  }
 
-    public String executeCommand(Command command) {
-        return command.execute();
-    }
-    public void changeDirectory(Directory dir) {
-      if(dir != null){
-        currentDirectory = dir;
-      }
-      throw new RuntimeException("Directory not found");
-    }
-    public Directory getCurrentDirectory() {
-        return currentDirectory;
+  public Directory getCurrentDirectory() {
+    return currentDirectory;
+  }
 
-    }
-    public String getRootPath() {
-        return rootPath;
-    }
+  public Directory getRoot() {
+    return rootDirectory;
+  }
 
-
-
-
+  public String getRootPath() {
+    return rootPath.toString();
+  }
 }
