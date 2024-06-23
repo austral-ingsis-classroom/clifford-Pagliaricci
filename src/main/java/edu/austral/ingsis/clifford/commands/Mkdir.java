@@ -3,10 +3,8 @@ package edu.austral.ingsis.clifford.commands;
 import edu.austral.ingsis.clifford.Command;
 import edu.austral.ingsis.clifford.FileSystem;
 import edu.austral.ingsis.clifford.files.Directory;
-import edu.austral.ingsis.clifford.files.Node;
 
 public class Mkdir implements Command {
-
 
   private final String name;
   private final FileSystem fileSystem;
@@ -18,10 +16,7 @@ public class Mkdir implements Command {
 
   @Override
   public String execute() {
-    new Directory(name,fileSystem.getCurrentDirectory());
-    return  "'"+name+"'"+ " directory created";
+    new Directory(name, fileSystem.getCurrentDirectory());
+    return "'" + name + "'" + " directory created";
   }
-
-
-
 }

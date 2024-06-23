@@ -3,12 +3,11 @@ package edu.austral.ingsis.clifford.files;
 import java.util.Date;
 import java.util.List;
 
-public class File implements Node{
+public class File implements Node {
 
-private final String name;
-private final Directory parent;
-private final Date creationDate;
-
+  private final String name;
+  private final Directory parent;
+  private final Date creationDate;
 
   public File(String name, Directory parent) {
     parent.addNode(this);
@@ -36,8 +35,9 @@ private final Date creationDate;
   public Date getCreationDate() {
     return creationDate;
   }
-  public String getPath(){
-    if(parent == null || parent.getName().equals("root")){
+
+  public String getPath() {
+    if (parent == null || parent.getName().equals("root")) {
       return "/" + name;
     }
     return parent.getPath() + "/" + name;

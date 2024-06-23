@@ -5,15 +5,14 @@ import edu.austral.ingsis.clifford.FileSystem;
 
 public class Pwd implements Command {
 
-    private final FileSystem fileSystem;
-    public Pwd(FileSystem fileSystem) {
-      this.fileSystem = fileSystem;
-    }
+  private final FileSystem fileSystem;
+
+  public Pwd(FileSystem fileSystem) {
+    this.fileSystem = fileSystem;
+  }
 
   @Override
   public String execute() {
-      return fileSystem.getCurrentDirectory().getPath();
+    return fileSystem.getCurrentDirectory().getPath();
   }
-
-
 }

@@ -10,16 +10,14 @@ public class Touch implements Command {
   private String name;
   private FileSystem fileSystem;
 
-
-    public Touch(FileSystem fileSystem, String name) {
-        this.name = name;
-        this.fileSystem = fileSystem;
-    }
-  @Override
-  public String execute() {
-      Node file = new File(name, fileSystem.getCurrentDirectory());
-      return "'"+ name + "'"+  " file created";
+  public Touch(FileSystem fileSystem, String name) {
+    this.name = name;
+    this.fileSystem = fileSystem;
   }
 
-
+  @Override
+  public String execute() {
+    Node file = new File(name, fileSystem.getCurrentDirectory());
+    return "'" + name + "'" + " file created";
+  }
 }

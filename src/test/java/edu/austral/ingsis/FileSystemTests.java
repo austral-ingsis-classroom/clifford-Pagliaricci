@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 
 public class FileSystemTests {
   private final FileSystemRunner runner = new MyFileSystemRunner();
+
   private void executeTest(List<Map.Entry<String, String>> commandsAndResults) {
     final List<String> commands = commandsAndResults.stream().map(Map.Entry::getKey).toList();
     final List<String> expectedResult =
@@ -68,15 +69,14 @@ public class FileSystemTests {
   void test4() {
     executeTest(
         List.of(
-                entry("mkdir horace", "'horace' directory created"),
-                entry("mkdir emily", "'emily' directory created"),
-                entry("cd horace", "moved to directory 'horace'"),
-                entry("mkdir jetta", "'jetta' directory created"),
-                entry("cd ..", "moved to directory '/'"),
-                entry("cd horace/jetta", "moved to directory 'jetta'"),
-                entry("pwd", "/horace/jetta"),
-                entry("cd /", "moved to directory '/'")
-      ));
+            entry("mkdir horace", "'horace' directory created"),
+            entry("mkdir emily", "'emily' directory created"),
+            entry("cd horace", "moved to directory 'horace'"),
+            entry("mkdir jetta", "'jetta' directory created"),
+            entry("cd ..", "moved to directory '/'"),
+            entry("cd horace/jetta", "moved to directory 'jetta'"),
+            entry("pwd", "/horace/jetta"),
+            entry("cd /", "moved to directory '/'")));
   }
 
   @Test

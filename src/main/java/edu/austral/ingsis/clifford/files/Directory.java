@@ -1,7 +1,6 @@
 package edu.austral.ingsis.clifford.files;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Date;
 
 public class Directory implements Node {

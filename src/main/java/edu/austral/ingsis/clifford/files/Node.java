@@ -7,7 +7,8 @@ public interface Node {
   public String getName();
 
   public Node getParentDirectory();
-  public List<Node> getSubDirectories();
-  Date getCreationDate();
 
+  public List<Node> getSubDirectories();
+
+  Date getCreationDate();
 }
